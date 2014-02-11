@@ -89,4 +89,24 @@ path.isSibling = function isSibling(subject, other) {
     path.dirname(path.resolve(other || process.cwd()));
 };
 
+/**
+ * Checks whether two strings refer to the same logical path.
+ *
+ * @param {string} subject An absolute or relative path to check.
+ * @param {string?} other Another path to check for equality. Defaults to the
+ *     current working directory (`process.cwd()`).
+ * @returns {boolean} `true` if `subject` and `other` refer to the same logical
+ *     path. Otherwise, `false`.
+ *
+ * @examples
+ * path.isEqual('.');                       // => true
+ * path.isEqual('..');                      // => false
+ * path.isEqual('./foo', 'foo');            // => true
+ * path.isEqual('./foo/..', '.');           // => true
+ * path.isEqual('./foo/../bar/.', './bar'); // => true
+ */
+path.isEqual = function isEqual(subject, other) {
+  return path.resolve(subject) === path.resolve(other || process.cwd());
+};
+
 module.exports = path;
