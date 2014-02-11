@@ -1,0 +1,6 @@
+{
+  "name": "apathy",
+  "description": "Path helpers",
+  "version": "0.1.0",
+  "main": "apathy.js"
+}
