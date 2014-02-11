@@ -1,7 +1,7 @@
 # apathy
 
-A micro-library that extends the built-in `path` module with some
-ancestry-related methods:
+A micro-library that extends the [built-in `path` module](http://nodejs.org/api/path.html)
+with some ancestry-related methods:
 
 - `isDescendant`
 - `isAncestor`
