@@ -6,6 +6,7 @@ ancestry-related methods:
 - `isDescendant`
 - `isAncestor`
 - `isSibling`
+- `isEqual`
 
 ## Usage
 
