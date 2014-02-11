@@ -68,4 +68,25 @@ path.isAncestor = function isAncestor(subject, other) {
   return path.isDescendant(other || process.cwd(), subject);
 };
 
+/**
+ * Checks whether two paths are siblings (i.e. have the same parent).
+ *
+ * @param {string} subject An absolute or relative path to check.
+ * @param {string?} other A potential sibling of `subject`. Defaults to the
+ *     current working directory (`process.cwd()`).
+ * @returns {boolean} `true` if `subject` and `other` reside in the same parent
+ *     directory. Otherwise, `false`.
+ *
+ * @examples
+ * path.isSibling('../foo');          // => true
+ * path.isSibling('../../foo');       // => false
+ * path.isSibling('../../foo', '..'); // => true
+ * path.isSibling('./foo');           // => false
+ * path.isSibling('./foo', './bar');  // => true
+ */
+path.isSibling = function isSibling(subject, other) {
+  return path.dirname(path.resolve(subject)) ===
+    path.dirname(path.resolve(other || process.cwd()));
+};
+
 module.exports = path;
