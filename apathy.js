@@ -12,16 +12,19 @@ var path = require('path');
  * @examples
  * var cwd = path.basename(process.cwd());
  *
- * path.isDescendant('./foo');   // => true
- * path.isDescendant('/foo');    // => false
- * path.isDescendant('../foo');  // => false
+ * path.isDescendant('./foo');       // => true
+ * path.isDescendant('/foo');        // => false
+ * path.isDescendant('../foo');      // => false
+ * path.isDescendant('../foo', '/'); // => true
  *
- * // If we're in the 'pathex' directory, this would be like '../pathex/foo',
+ * // If we're in the 'apathy' directory, this would be like '../apathy/foo',
  * // which is in fact a descendant.
  * path.isDescendant('../' + cwd + '/foo');
  * // => true
  *
  * // Contrived complex cases
+ * path.isDescendant('../../foo/bar', '../../foo');             // => true
+ * path.isDescendant('../../foo/../bar', '../../foo');          // => false
  * path.isDescendant('../' + cwd + '/.././' + cwd + '/./foo');  // => true
  * path.isDescendant('../' + cwd + '/../../' + cwd + '/./foo'); // => false
  */
